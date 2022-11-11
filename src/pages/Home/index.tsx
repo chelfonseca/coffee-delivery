@@ -1,3 +1,11 @@
+import { HomeContainer } from './styles'
+
+import { Intro } from './Components/Intro'
+
 export function Home() {
-  return <h1>Home</h1>
+  return (
+    <HomeContainer>
+      <Intro />
+    </HomeContainer>
+  )
 }
