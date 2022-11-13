@@ -33,5 +33,9 @@ export const CoffeeFilter = styled.div`
 `
 
 export const CoffeeListItems = styled.div`
+  width: 100%;
+  height: auto;
   display: flex;
+  gap: 2rem;
+  padding: 4rem 0 8rem 0;
 `
