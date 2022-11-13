@@ -7,10 +7,7 @@ import {
   IntroContainer,
 } from './styles'
 
-import ItemCart from '../../../../assets/ItemCart.svg'
-import ItemDelivery from '../../../../assets/ItemDelivery.svg'
-import ItemPackage from '../../../../assets/ItemPackage.svg'
-import ItemCoffee from '../../../../assets/ItemCoffee.svg'
+import { ShoppingCart, Package, Timer, Coffee } from 'phosphor-react'
 import IntroCoffee from '../../../../assets/IntroCoffee.svg'
 
 export function Intro() {
@@ -26,22 +23,30 @@ export function Intro() {
         </IntroInfoText>
         <IntroInfoList>
           <div>
-            <IntroInfoListItem>
-              <img src={ItemCart} alt="" />
+            <IntroInfoListItem variantColor="yellow-dark">
+              <div>
+                <ShoppingCart size={16} weight="fill" />
+              </div>
               <p>Compra simples e segura</p>
             </IntroInfoListItem>
-            <IntroInfoListItem>
-              <img src={ItemDelivery} alt="" />
+            <IntroInfoListItem variantColor="yellow">
+              <div>
+                <Timer size={16} weight="fill" />
+              </div>
               <p>Entrega rápida e rastreada</p>
             </IntroInfoListItem>
           </div>
           <div>
-            <IntroInfoListItem>
-              <img src={ItemPackage} alt="" />
+            <IntroInfoListItem variantColor="base-text">
+              <div>
+                <Package size={16} weight="fill" />
+              </div>
               <p>Embalagem mantém o café intacto</p>
             </IntroInfoListItem>
-            <IntroInfoListItem>
-              <img src={ItemCoffee} alt="" />
+            <IntroInfoListItem variantColor="purple">
+              <div>
+                <Coffee size={16} weight="fill" />
+              </div>
               <p>O café chega fresquinho até você</p>
             </IntroInfoListItem>
           </div>

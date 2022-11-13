@@ -60,17 +60,37 @@ export const IntroInfoList = styled.div`
     justify-content: space-between;
   }
 `
-export const IntroInfoListItem = styled.span`
+const VARIANT_COLOR = {
+  'yellow-dark': 'yellow-dark',
+  yellow: 'yellow',
+  'base-text': 'base-text',
+  purple: 'purple',
+} as const
+
+interface IntroInfoListItemProps {
+  variantColor: keyof typeof VARIANT_COLOR
+}
+
+export const IntroInfoListItem = styled.span<IntroInfoListItemProps>`
   display: flex;
   align-items: center;
   justify-content: left;
+  gap: 1rem;
   width: 18rem;
-  font-size: 0.875rem;
-  color: ${(props) => props.theme['base-subtitle']};
 
-  img {
+  div {
     width: 2rem;
     height: 2rem;
-    margin-right: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background-color: ${(props) =>
+      props.theme[VARIANT_COLOR[props.variantColor]]};
+    color: ${(props) => props.theme.background};
+  }
+  p {
+    font-size: 0.875rem;
+    color: ${(props) => props.theme['base-subtitle']};
   }
 `

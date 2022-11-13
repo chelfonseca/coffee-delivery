@@ -1,20 +1,18 @@
 import { HeaderContainer, LocationInput } from './styles'
-import LogoCoffee from '../../assets/Logo-coffee.svg'
+import LogoCoffeeDelivery from '../../assets/LogoCoffeeDelivery.svg'
 import { NavLink } from 'react-router-dom'
-import Cart from '../../assets/Cart.svg'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faLocationDot } from '@fortawesome/free-solid-svg-icons'
+import { MapPin, ShoppingCart } from 'phosphor-react'
 
 export function Header() {
   return (
     <HeaderContainer>
       <span>
-        <img src={LogoCoffee} alt="" />
+        <img src={LogoCoffeeDelivery} alt="" />
       </span>
       <nav>
         <LocationInput>
-          <FontAwesomeIcon icon={faLocationDot} />
-          <input type="text" placeholder="City" list="states" />
+          <MapPin size={24} weight="fill" />
+          <input type="text" placeholder="São Paulo, SP" list="states" />
         </LocationInput>
 
         <datalist id="states">
@@ -25,7 +23,7 @@ export function Header() {
         </datalist>
 
         <NavLink to="/checkout" title="Checkout">
-          <img src={Cart} alt="" />
+          <ShoppingCart size={20} weight="fill" />
         </NavLink>
       </nav>
     </HeaderContainer>

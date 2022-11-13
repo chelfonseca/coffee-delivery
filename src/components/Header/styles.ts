@@ -10,6 +10,17 @@ export const HeaderContainer = styled.header`
   nav {
     display: flex;
     gap: 0.5rem;
+
+    a {
+      width: 2.375rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0;
+      border-radius: 0.5rem;
+      color: ${(props) => props.theme['yellow-dark']};
+      background-color: ${(props) => props.theme['yellow-light']};
+    }
   }
 `
 export const LocationInput = styled.div`
@@ -17,7 +28,8 @@ export const LocationInput = styled.div`
   height: 2.3rem;
   display: flex;
   align-items: center;
-  padding: 0 1rem;
+  justify-content: left;
+  padding: 0 0.5rem;
   gap: 0.5rem;
   border: none;
   border-radius: 0.5rem;
@@ -25,9 +37,9 @@ export const LocationInput = styled.div`
   color: ${(props) => props.theme.purple};
 
   input {
-    width: 6.3rem;
+    width: 80%;
     height: 1.125rem;
-    font-size: 0.8rem;
+    font-size: 0.845rem;
     border: none;
     outline: none;
     background-color: ${(props) => props.theme['purple-light']};
