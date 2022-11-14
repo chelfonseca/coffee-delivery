@@ -1,4 +1,4 @@
-import { CoffeeCard } from './Component/CoffeeCard'
+import { CoffeeCard } from './Components/CoffeeCard'
 import {
   CoffeeFilter,
   CoffeeListContainer,

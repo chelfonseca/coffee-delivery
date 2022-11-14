@@ -1,6 +1,7 @@
-import { CoffeeCardContainer } from './styles'
+import { CoffeeCardContainer, Description, Tags, Tag } from './styles'
 
 import havaiano from '../../coffeeImages/havaiano.svg'
+import { Buy } from './Components'
 
 interface CoffeeCardProps {
   id: string
@@ -22,14 +23,14 @@ export function CoffeeCard({
   return (
     <CoffeeCardContainer>
       <img src={havaiano} alt="" />
-      <div>
+      <Tags>
         {tags.map((tag) => (
-          <span key={id}>{tag}</span>
+          <Tag key={id}>{tag}</Tag>
         ))}
-      </div>
+      </Tags>
       <h3>{name}</h3>
-      <p>{description}</p>
-      <p>Buy</p>
+      <Description>{description}</Description>
+      <Buy />
     </CoffeeCardContainer>
   )
 }
