@@ -1,4 +1,4 @@
-import styled, { withTheme } from 'styled-components'
+import styled from 'styled-components'
 
 export const BuyContainer = styled.div`
   width: 100%;
@@ -15,6 +15,9 @@ export const BuyContainer = styled.div`
   button {
     width: 2.375rem;
     height: 2.375rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     background-color: ${(props) => props.theme.purple};
     color: ${(props) => props.theme.background};
     border: none;
@@ -25,21 +28,26 @@ export const BuyContainer = styled.div`
     font-family: 'Baloo 2', sans-serif;
     font-size: 2rem;
     color: ${(props) => props.theme['base-subtitle']};
-    margin: 0 2rem 0 0.5rem;
+    margin: 0 1.5rem 0 0.5rem;
   }
 `
 export const AddButton = styled.div`
+  width: 4.5rem;
   height: 100%;
   display: flex;
   align-items: center;
-  justify-content: space-around;
-  background-color: ${(props) => props.theme['base-input']};
+  justify-content: center;
+  background-color: ${(props) => props.theme['base-button']};
   color: ${(props) => props.theme.purple};
-  border: 2px solid black;
   margin-right: 0.5rem;
+  border-radius: 10%;
 
   span {
-    font-size: 1rem;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.2rem;
     color: ${(props) => props.theme['base-subtitle']};
+    font-weight: 400;
+    padding: 0;
+    margin: 0 0.5rem;
   }
 `

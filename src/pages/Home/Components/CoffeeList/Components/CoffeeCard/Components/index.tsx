@@ -7,12 +7,12 @@ export function Buy() {
       <p>R$</p>
       <span>9,90</span>
       <AddButton>
-        <Plus />
+        <Minus size={13} />
         <span>1</span>
-        <Minus />
+        <Plus size={13} />
       </AddButton>
       <button>
-        <ShoppingCart size={20} weight="fill" />
+        <ShoppingCart size={22} weight="fill" />
       </button>
     </BuyContainer>
   )
