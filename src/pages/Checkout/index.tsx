@@ -1,11 +1,12 @@
 import { Order } from './Components/Order'
-import { CheckoutContainer, SelectedContainer } from './styles'
+import { Selected } from './Components/Selected'
+import { CheckoutContainer } from './styles'
 
 export function Checkout() {
   return (
     <CheckoutContainer>
       <Order />
-      <SelectedContainer>Cafés selecionados</SelectedContainer>
+      <Selected />
     </CheckoutContainer>
   )
 }

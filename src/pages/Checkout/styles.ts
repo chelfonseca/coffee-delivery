@@ -7,8 +7,3 @@ export const CheckoutContainer = styled.div`
   justify-content: space-between;
   align-items: flex-start;
 `
-
-export const SelectedContainer = styled.div`
-  width: 28rem;
-  height: 32rem;
-`
