@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { VARIANT_COLOR, VariantColorProps } from '../../../../styles/variants'
 
 export const IntroContainer = styled.div`
   display: flex;
@@ -60,18 +61,8 @@ export const IntroInfoList = styled.div`
     justify-content: space-between;
   }
 `
-const VARIANT_COLOR = {
-  'yellow-dark': 'yellow-dark',
-  yellow: 'yellow',
-  'base-text': 'base-text',
-  purple: 'purple',
-} as const
 
-interface IntroInfoListItemProps {
-  variantColor: keyof typeof VARIANT_COLOR
-}
-
-export const IntroInfoListItem = styled.span<IntroInfoListItemProps>`
+export const IntroInfoListItem = styled.span<VariantColorProps>`
   display: flex;
   align-items: center;
   justify-content: left;

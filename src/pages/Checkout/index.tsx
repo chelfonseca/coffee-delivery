@@ -10,7 +10,7 @@ import {
   InputStreet,
   OrderContainer,
   OrderContainerMain,
-  OrderHeader,
+  BasicHeader,
   PaymentButtonsContainer,
   PaymentContainer,
   SelectedContainer,
@@ -30,13 +30,13 @@ export function Checkout() {
       <OrderContainer>
         <h3>Complete seu pedido</h3>
         <OrderContainerMain>
-          <OrderHeader>
+          <BasicHeader variantColor="yellow-dark">
             <MapPinLine size={22} />
             <div>
               <h4>Endereço de entrega</h4>
               <p>Informe o endereço onde deseja receber o seu pedido</p>
             </div>
-          </OrderHeader>
+          </BasicHeader>
           <FormAdress>
             <InputPostCode placeholder="CEP" />
             <InputStreet placeholder="Rua" />
@@ -49,13 +49,13 @@ export function Checkout() {
           </FormAdress>
         </OrderContainerMain>
         <PaymentContainer>
-          <OrderHeader>
+          <BasicHeader variantColor="purple">
             <CurrencyDollar />
             <div>
               <h4>Pagamento</h4>
               <p>O pagamento é feito na entrega</p>
             </div>
-          </OrderHeader>
+          </BasicHeader>
           <PaymentButtonsContainer>
             <button>
               <CreditCard size={22} />

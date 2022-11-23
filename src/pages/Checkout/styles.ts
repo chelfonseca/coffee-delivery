@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { VARIANT_COLOR, VariantColorProps } from '../../styles/variants'
 
 export const CheckoutContainer = styled.div`
   width: 100%;
@@ -32,13 +33,14 @@ export const SelectedContainer = styled.div`
   width: 28rem;
   height: 32rem;
 `
-export const OrderHeader = styled.div`
+
+export const BasicHeader = styled.div<VariantColorProps>`
   width: 35rem;
   height: 2.75rem;
   margin-bottom: 2.5rem;
   display: flex;
   gap: 0.5rem;
-  color: ${(props) => props.theme['yellow-dark']};
+  color: ${(props) => props.theme[VARIANT_COLOR[props.variantColor]]};
   font-size: 1.32rem;
 
   h4 {
