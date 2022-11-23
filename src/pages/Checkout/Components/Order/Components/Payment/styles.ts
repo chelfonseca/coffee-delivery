@@ -1,12 +1,16 @@
 import styled from 'styled-components'
 
 export const PaymentContainer = styled.main`
-  width: 40rem;
-  height: 13rem;
   display: flex;
   flex-direction: column;
-  font-size: 1.32rem;
+  align-items: center;
+  width: 100%;
+  height: 13rem;
+  background-color: ${(props) => props.theme['base-card']};
   margin-top: 1rem;
+  padding: 2.5rem;
+  border-radius: 8px;
+  font-size: 1.32rem;
 `
 export const PaymentButtonsContainer = styled.div`
   display: flex;
