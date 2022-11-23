@@ -101,3 +101,32 @@ export const InputCity = styled(Input)`
 export const InputState = styled(Input)`
   grid-area: inputState;
 `
+export const PaymentContainer = styled(OrderContainerMain)`
+  height: 13rem;
+  margin-top: 1rem;
+`
+export const PaymentButtonsContainer = styled.div`
+  display: flex;
+  gap: 1rem;
+
+  button {
+    width: 11.18rem;
+    height: 3.2rem;
+    border: none;
+    border-radius: 8px;
+    background-color: ${(props) => props.theme['base-button']};
+    color: ${(props) => props.theme.purple};
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: left;
+    gap: 0.5rem;
+    padding-left: 0.7rem;
+
+    p {
+      color: ${(props) => props.theme['base-subtitle']};
+      font-size: 0.75rem;
+      text-transform: uppercase;
+    }
+  }
+`
