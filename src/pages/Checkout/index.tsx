@@ -9,6 +9,7 @@ import {
   InputState,
   InputStreet,
   OrderContainer,
+  OrderContainerMain,
   OrderHeader,
   SelectedContainer,
 } from './styles'
@@ -20,11 +21,11 @@ export function Checkout() {
     <CheckoutContainer>
       <OrderContainer>
         <h3>Complete seu pedido</h3>
-        <div>
+        <OrderContainerMain>
           <OrderHeader>
-            <MapPinLine />
+            <MapPinLine size={22} />
             <div>
-              <h3>Endereço de entrega</h3>
+              <h4>Endereço de entrega</h4>
               <p>Informe o endereço onde deseja receber o seu pedido</p>{' '}
             </div>
           </OrderHeader>
@@ -33,11 +34,12 @@ export function Checkout() {
             <InputStreet placeholder="Rua" />
             <InputNumber placeholder="Número" />
             <InputComplement placeholder="Complemento" />
+            <span>Opcional</span>
             <InputNeighborhood placeholder="Bairro" />
             <InputCity placeholder="Cidade" />
             <InputState placeholder="UF" />
           </FormAdress>
-        </div>
+        </OrderContainerMain>
       </OrderContainer>
       <SelectedContainer>Cafés selecionados</SelectedContainer>
     </CheckoutContainer>

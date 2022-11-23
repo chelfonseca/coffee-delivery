@@ -3,7 +3,6 @@ import styled from 'styled-components'
 export const CheckoutContainer = styled.div`
   width: 100%;
   height: 100vh;
-  border: 2px solid ${(props) => props.theme['purple-dark']};
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
@@ -11,22 +10,44 @@ export const CheckoutContainer = styled.div`
 export const OrderContainer = styled.div`
   width: 40rem;
   height: 37rem;
-  border: 2px solid ${(props) => props.theme.purple};
   display: flex;
   flex-direction: column;
-  div {
-    width: 100%;
-    height: 100%;
-    background-color: ${(props) => props.theme['base-card']};
+  font-size: 1.32rem;
+
+  h3 {
+    color: ${(props) => props.theme['base-subtitle']};
+    margin: 1rem 0;
   }
+`
+export const OrderContainerMain = styled.main`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  background-color: ${(props) => props.theme['base-card']};
+  padding: 2.5rem;
+  border-radius: 8px;
 `
 export const SelectedContainer = styled.div`
   width: 28rem;
   height: 32rem;
-  border: 2px solid ${(props) => props.theme.purple};
 `
 export const OrderHeader = styled.div`
-  width: 100%;
+  width: 35rem;
+  height: 2.75rem;
+  margin-bottom: 2.5rem;
+  display: flex;
+  gap: 0.5rem;
+  color: ${(props) => props.theme['yellow-dark']};
+  font-size: 1.32rem;
+
+  h4 {
+    color: ${(props) => props.theme['base-subtitle']};
+    margin-bottom: 0.5rem;
+  }
+  p {
+    color: ${(props) => props.theme['base-text']};
+  }
 `
 export const FormAdress = styled.form`
   display: grid;
@@ -38,36 +59,45 @@ export const FormAdress = styled.form`
     'inputNumber inputComplement inputComplement'
     'inputNeighborhood inputCity inputState';
   grid-gap: 1rem;
+  justify-content: center;
+
+  span {
+    position: relative;
+    top: 8rem;
+    left: 18rem;
+    font-size: 0.875rem;
+    font-style: italic;
+  }
 `
 const Input = styled.input`
   background-color: ${(props) => props.theme['base-input']};
+  padding-left: 0.5rem;
+  border: none;
+  border-radius: 8px;
 `
 export const InputPostCode = styled(Input)`
-  border: 2px solid ${(props) => props.theme['base-text']};
   grid-area: inputPostCode;
 `
 
 export const InputStreet = styled(Input)`
-  border: 2px solid ${(props) => props.theme['base-text']};
   grid-area: inputStreet;
 `
 export const InputNumber = styled(Input)`
-  border: 2px solid ${(props) => props.theme['base-text']};
   grid-area: inputNumber;
 `
 export const InputComplement = styled(Input)`
-  border: 2px solid ${(props) => props.theme['base-text']};
   grid-area: inputComplement;
+
+  :focus + span {
+    display: none;
+  }
 `
 export const InputNeighborhood = styled(Input)`
-  border: 2px solid ${(props) => props.theme['base-text']};
   grid-area: inputNeighborhood;
 `
 export const InputCity = styled(Input)`
-  border: 2px solid ${(props) => props.theme['base-text']};
   grid-area: inputCity;
 `
 export const InputState = styled(Input)`
-  border: 2px solid ${(props) => props.theme['base-text']};
   grid-area: inputState;
 `
