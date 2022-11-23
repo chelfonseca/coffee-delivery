@@ -18,10 +18,15 @@ export const BuyContainer = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: ${(props) => props.theme.purple};
+    background-color: ${(props) => props.theme['purple-dark']};
     color: ${(props) => props.theme.background};
     border: none;
-    border-radius: 10%;
+    border-radius: 8px;
+    transition: background-color 0.5s ease-in-out;
+
+    :hover {
+      background-color: ${(props) => props.theme.purple};
+    }
   }
 
   span {
@@ -40,7 +45,8 @@ export const AddButton = styled.div`
   background-color: ${(props) => props.theme['base-button']};
   color: ${(props) => props.theme.purple};
   margin-right: 0.5rem;
-  border-radius: 10%;
+  border-radius: 8px;
+  transition: background-color 0.5s ease-in-out;
 
   span {
     font-family: 'Roboto', sans-serif;
@@ -49,5 +55,11 @@ export const AddButton = styled.div`
     font-weight: 400;
     padding: 0;
     margin: 0 0.5rem;
+  }
+
+  div {
+    :hover {
+      color: ${(props) => props.theme['base-title']};
+    }
   }
 `

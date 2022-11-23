@@ -7,9 +7,13 @@ export function Buy() {
       <p>R$</p>
       <span>9,90</span>
       <AddButton>
-        <Minus size={13} />
+        <div>
+          <Minus size={13} />
+        </div>
         <span>1</span>
-        <Plus size={13} />
+        <div>
+          <Plus size={13} />
+        </div>
       </AddButton>
       <button>
         <ShoppingCart size={22} weight="fill" />

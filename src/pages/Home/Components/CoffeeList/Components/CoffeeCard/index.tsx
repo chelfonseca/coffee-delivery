@@ -1,7 +1,7 @@
 import { CoffeeCardContainer, Description, Tags, Tag } from './styles'
 
 import havaiano from '../../coffeeImages/havaiano.svg'
-import { Buy } from './Components'
+import { Buy } from './Components/Buy'
 
 interface CoffeeCardProps {
   id: string

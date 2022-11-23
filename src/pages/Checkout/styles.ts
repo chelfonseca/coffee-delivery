@@ -123,10 +123,20 @@ export const PaymentButtonsContainer = styled.div`
     gap: 0.5rem;
     padding-left: 0.7rem;
 
+    transition: background-color 0.5s ease-in-out;
+
     p {
       color: ${(props) => props.theme['base-subtitle']};
       font-size: 0.75rem;
       text-transform: uppercase;
+    }
+
+    :hover {
+      background-color: ${(props) => props.theme['base-hover']};
+    }
+    :focus {
+      background-color: ${(props) => props.theme['purple-light']};
+      box-shadow: 0 0 0 2px ${(props) => props.theme.purple};
     }
   }
 `
