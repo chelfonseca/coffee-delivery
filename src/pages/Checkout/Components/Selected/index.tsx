@@ -1,13 +1,18 @@
-import { SelectedContainer, SelectedContainerMain } from './styles'
+import { CoffeeCardSelected } from './Components/CoffeeCardSelected'
+import {
+  PurchaseButton,
+  SelectedContainer,
+  SelectedContainerMain,
+} from './styles'
 
 export function Selected() {
   return (
     <SelectedContainer>
       <h3>Cafés selecionados</h3>
       <SelectedContainerMain>
-        <div>CoffeeCard</div>
+        <CoffeeCardSelected />
         <hr />
-        <div>CoffeeCard</div>
+        <CoffeeCardSelected />
         <hr />
         <table>
           <tbody>
@@ -27,7 +32,7 @@ export function Selected() {
             </tr>
           </tfoot>
         </table>
-        <button>Confirmar Pedido</button>
+        <PurchaseButton>Confirmar Pedido</PurchaseButton>
       </SelectedContainerMain>
     </SelectedContainer>
   )

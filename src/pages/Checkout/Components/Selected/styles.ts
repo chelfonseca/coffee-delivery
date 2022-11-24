@@ -20,12 +20,6 @@ export const SelectedContainerMain = styled.main`
   border-bottom-left-radius: 10%;
   border-top-right-radius: 10%;
 
-  div {
-    width: 23rem;
-    height: 5rem;
-    border: 2px solid black;
-  }
-
   hr {
     width: 100%;
     margin: 2rem 0;
@@ -56,23 +50,22 @@ export const SelectedContainerMain = styled.main`
       }
     }
   }
+`
+export const PurchaseButton = styled.button`
+  width: 23rem;
+  height: 2.9rem;
+  background-color: ${(props) => props.theme.yellow};
+  color: ${(props) => props.theme.white};
+  margin-top: 2rem;
+  border: none;
+  border-radius: 8px;
+  text-transform: uppercase;
+  font-size: 1rem;
+  font-weight: 700;
+  box-shadow: none;
+  transition: background-color 0.5s ease-in-out;
 
-  button {
-    width: 23rem;
-    height: 2.9rem;
-    background-color: ${(props) => props.theme.yellow};
-    color: ${(props) => props.theme.white};
-    margin-top: 2rem;
-    border: none;
-    border-radius: 8px;
-    text-transform: uppercase;
-    font-size: 1rem;
-    font-weight: 700;
-    box-shadow: none;
-    transition: background-color 0.5s ease-in-out;
-
-    :hover {
-      background-color: ${(props) => props.theme['yellow-dark']};
-    }
+  :hover {
+    background-color: ${(props) => props.theme['yellow-dark']};
   }
 `
