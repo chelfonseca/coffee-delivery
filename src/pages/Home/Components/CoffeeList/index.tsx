@@ -6,24 +6,7 @@ import {
   CoffeeListItems,
 } from './styles'
 
-const coffees = [
-  {
-    id: '012',
-    name: 'havaiano',
-    coffeeImage: '../../coffeeImages/havaiano.svg',
-    description: 'Bebida adocicada preparada com café e leite de coco',
-    tags: ['especial'],
-    price: 9.9,
-  },
-  {
-    id: '012',
-    name: 'havaiano',
-    coffeeImage: '../../coffeeImages/havaiano.svg',
-    description: 'Bebida adocicada preparada com café e leite de coco',
-    tags: ['especial', 'tradicional', 'gelado'],
-    price: 9.9,
-  },
-]
+import { coffees } from '../../../../products/products'
 
 export function CoffeeList() {
   return (

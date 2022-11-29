@@ -10,13 +10,13 @@ import { Trash } from 'phosphor-react'
 
 import { Counter } from '../../../../../../components/Counter'
 
-import havaiano from '../../../../../../assets/coffeeImages/havaiano.svg'
+import Havaiano from '../../../../../../products/coffeeImages/Havaiano.svg'
 
 export function CoffeeCardSelected() {
   return (
     <CoffeeCardSelectedContainer>
       <InfoContainer>
-        <img src={havaiano} alt="" />
+        <img src={Havaiano} alt="" />
         <Details>
           <p>Havaiano</p>
           <Actions>
