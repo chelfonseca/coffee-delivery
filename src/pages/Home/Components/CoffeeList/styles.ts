@@ -38,4 +38,6 @@ export const CoffeeListItems = styled.div`
   display: flex;
   gap: 2rem;
   padding: 4rem 0 8rem 0;
+  flex-wrap: wrap;
+  justify-content: center;
 `

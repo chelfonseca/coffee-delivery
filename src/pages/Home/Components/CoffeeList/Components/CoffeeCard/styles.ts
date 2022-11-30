@@ -5,6 +5,8 @@ export const CoffeeCardContainer = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
+  /* width: 256px;
+  height: 310px; */
   width: 16rem;
   height: 19.375rem;
   background-color: ${(props) => props.theme['base-card']};
@@ -16,6 +18,8 @@ export const CoffeeCardContainer = styled.div`
   img {
     position: relative;
     top: -1.25rem;
+    /* width: 120px;
+    height: 120px; */
     width: 7.5rem;
     height: 7.5rem;
   }

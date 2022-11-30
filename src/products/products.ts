@@ -58,6 +58,16 @@ export const coffees: Coffee[] = [
     quantity: 0,
   },
   {
+    id: '004',
+    name: 'Expresso Gelado',
+    coffeeImage: images.ExpressoGelado,
+    description: 'Bebida preparada com café expresso e cubos de gelo',
+    tags: ['tradicional', 'gelado'],
+    price: 9.9,
+    selected: false,
+    quantity: 0,
+  },
+  {
     id: '012',
     name: 'havaiano',
     coffeeImage: images.Havaiano,
