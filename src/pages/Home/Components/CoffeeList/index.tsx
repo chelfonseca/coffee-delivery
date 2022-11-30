@@ -6,9 +6,11 @@ import {
   CoffeeListItems,
 } from './styles'
 
-import { coffees } from '../../../../products/products'
+import { useContext } from 'react'
+import { OrderContext } from '../../../../contexts/OrderContext'
 
 export function CoffeeList() {
+  const { coffees } = useContext(OrderContext)
   return (
     <CoffeeListContainer>
       <CoffeeListHeader>

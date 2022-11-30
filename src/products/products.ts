@@ -1,31 +1,7 @@
 import { images } from './images'
 
-interface Coffee {
-  id: string
-  name: string
-  coffeeImage: string
-  description: string
-  tags: string[]
-  price: 9.9
-  selected: boolean
-  quantity: number
-}
+import { Coffee } from '../contexts/OrderContext'
 
-interface AdressInfo {
-  postCode: string
-  street: string
-  number: string
-  complement?: string
-  neighborhood: string
-  stateCode: string
-}
-
-export interface Purchase {
-  coffees: Coffee[]
-  adress: AdressInfo
-  payment: string
-  total: number
-}
 export const coffees: Coffee[] = [
   {
     id: '001',
