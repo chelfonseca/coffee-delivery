@@ -21,7 +21,7 @@ export const CoffeeFilter = styled.div`
   display: flex;
   gap: 0.5rem;
 
-  button {
+  /* button {
     border-radius: 2rem;
     padding: 0.35rem 0.5rem;
     font-size: 0.75rem;
@@ -29,9 +29,22 @@ export const CoffeeFilter = styled.div`
     background-color: ${(props) => props.theme.background};
     color: ${(props) => props.theme['yellow-dark']};
     border: 2px solid ${(props) => props.theme['yellow-dark']};
-  }
+  } */
 `
-
+interface CoffeeFilterButtonProps {
+  isActive: boolean
+}
+export const CoffeeFilterButton = styled.button<CoffeeFilterButtonProps>`
+  border-radius: 2rem;
+  padding: 0.35rem 0.5rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  background-color: ${(props) =>
+    props.isActive ? props.theme.yellow : props.theme.background};
+  color: ${(props) => props.theme['yellow-dark']};
+  border: 2px solid ${(props) => props.theme['yellow-dark']};
+  text-transform: uppercase;
+`
 export const CoffeeListItems = styled.div`
   width: 100%;
   height: auto;
