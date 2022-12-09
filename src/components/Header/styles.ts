@@ -21,6 +21,20 @@ export const HeaderContainer = styled.header`
       color: ${(props) => props.theme['yellow-dark']};
       background-color: ${(props) => props.theme['yellow-light']};
     }
+
+    span {
+      position: absolute;
+      top: 1.7rem;
+      right: 9.8rem;
+      width: 1.2rem;
+      height: 1.2rem;
+      border-radius: 999px;
+      text-align: center;
+      padding: 0.1rem;
+      font-size: 0.8rem;
+      color: ${(props) => props.theme.background};
+      background-color: ${(props) => props.theme['yellow-dark']};
+    }
   }
 `
 export const LocationInput = styled.div`
