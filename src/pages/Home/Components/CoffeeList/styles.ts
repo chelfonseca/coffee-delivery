@@ -6,7 +6,7 @@ export const CoffeeListContainer = styled.main`
   flex-direction: column;
   align-items: center;
 `
-export const CoffeeListHeader = styled.h2`
+export const CoffeeListHeader = styled.div`
   width: 100%;
   display: flex;
   align-items: center;

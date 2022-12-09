@@ -12,13 +12,14 @@ export const CounterContainer = styled.div`
   border-radius: 8px;
   transition: background-color 0.5s ease-in-out;
 
-  span {
+  p {
     font-family: 'Roboto', sans-serif;
     font-size: 1.2rem;
     color: ${(props) => props.theme['base-subtitle']};
-    font-weight: 400;
+    font-weight: 100;
     padding: 0;
     margin: 0 0.5rem;
+    text-align: center;
   }
 
   div {
