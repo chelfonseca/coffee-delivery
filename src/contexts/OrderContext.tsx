@@ -59,32 +59,36 @@ export function OrderContextProvider({ children }: OrderContextProviderProps) {
   // const [payment, setPayment] = useState<string>('')
   // const [total, setTotal] = useState<number>(0)
 
-  function addNewOrder(IdProduct: string) {
-    const cartCopy = cart
-    const item = cartCopy.find((item) => item.id === IdProduct)
+  function addNewOrder(idProduct: string) {
+    const item = cart.find((item) => item.id === idProduct)
 
     if (!item) {
-      cartCopy.push({
-        id: IdProduct,
+      const itemUpdated = {
+        id: idProduct,
         quantity: 1,
-      })
+      }
+      setCart((items) => [...items, itemUpdated])
     } else {
-      item.quantity += 1
+      const itemUpdated = {
+        id: idProduct,
+        quantity: item.quantity + 1,
+      }
+      const itemsWithoutItem = cart.filter((item) => item.id !== idProduct)
+      setCart((items) => [...itemsWithoutItem, itemUpdated])
     }
-    setCart(cartCopy)
-    console.log(cart)
   }
 
-  function removeOrder(IdProduct: string) {
-    const cartCopy = cart
-    const item = cartCopy.find((item) => item.id === IdProduct)
+  function removeOrder(idProduct: string) {
+    const item = cart.find((item) => item.id === idProduct)
 
     if (item && item.quantity >= 1) {
-      item.quantity -= 1
+      const itemUpdated = {
+        id: idProduct,
+        quantity: item.quantity - 1,
+      }
+      const itemsWithoutItem = cart.filter((item) => item.id !== idProduct)
+      setCart((items) => [...itemsWithoutItem, itemUpdated])
     }
-
-    setCart(cartCopy)
-    console.log(cart)
   }
 
   return (
