@@ -27,7 +27,7 @@ export const InfoContainer = styled.div`
 
   p {
     color: ${(props) => props.theme['base-subtitle']};
-    font-size: 1.25rem;
+    font-size: 1rem;
   }
 `
 export const Details = styled.div`

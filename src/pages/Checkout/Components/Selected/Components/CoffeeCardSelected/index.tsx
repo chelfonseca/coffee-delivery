@@ -10,25 +10,41 @@ import { Trash } from 'phosphor-react'
 
 import { Counter } from '../../../../../../components/Counter'
 
-import Havaiano from '../../../../../../products/coffeeImages/Havaiano.svg'
+import { useContext } from 'react'
+import { OrderContext } from '../../../../../../contexts/OrderContext'
 
-export function CoffeeCardSelected() {
+interface CoffeeCardSelectedProps {
+  id: string
+  name?: string
+  coffeeImage?: string
+  price?: number
+  itemQuantity: number
+}
+
+export function CoffeeCardSelected({
+  id,
+  name,
+  coffeeImage,
+  price,
+  itemQuantity,
+}: CoffeeCardSelectedProps) {
+  const { removeAllOrder } = useContext(OrderContext)
   return (
     <CoffeeCardSelectedContainer>
       <InfoContainer>
-        <img src={Havaiano} alt="" />
+        <img src={coffeeImage} alt="" />
         <Details>
-          <p>Havaiano</p>
+          <p>{name}</p>
           <Actions>
-            <Counter />
-            <Remove>
+            <Counter id={id} itemQuantity={itemQuantity} upDateCart />
+            <Remove onClick={() => removeAllOrder(id)}>
               <Trash size={20} />
               <p>Remover</p>
             </Remove>
           </Actions>
         </Details>
       </InfoContainer>
-      <span>R$ 9,90</span>
+      <span>R$ {price?.toFixed(2)}</span>
     </CoffeeCardSelectedContainer>
   )
 }

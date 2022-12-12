@@ -46,6 +46,7 @@ export interface OrderContextType {
   addNewOrder: (id: string) => void
   removeOrder: (id: string) => void
   handleUpdateCart: () => void
+  removeAllOrder: (id: string) => void
 }
 
 export const OrderContext = createContext({} as OrderContextType)
@@ -99,7 +100,23 @@ export function OrderContextProvider({ children }: OrderContextProviderProps) {
   }
 
   function handleUpdateCart() {
-    setCart(temporaryCart)
+    const itemsSorted = temporaryCart.sort(
+      (a, b) => Number(a.id) - Number(b.id),
+    )
+    setCart((items) => [...itemsSorted])
+  }
+
+  function removeAllOrder(idProduct: string) {
+    const item = temporaryCart.find((item) => item.id === idProduct)
+
+    if (item) {
+      const itemsWithoutItem = temporaryCart.filter(
+        (item) => item.id !== idProduct,
+      )
+      setTemporaryCart((items) => [...itemsWithoutItem])
+    }
+
+    handleUpdateCart()
   }
 
   return (
@@ -115,6 +132,7 @@ export function OrderContextProvider({ children }: OrderContextProviderProps) {
         addNewOrder,
         removeOrder,
         handleUpdateCart,
+        removeAllOrder,
       }}
     >
       {children}

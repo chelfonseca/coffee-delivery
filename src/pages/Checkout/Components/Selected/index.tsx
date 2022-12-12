@@ -5,15 +5,32 @@ import {
   SelectedContainerMain,
 } from './styles'
 
+import { useContext } from 'react'
+import { OrderContext } from '../../../../contexts/OrderContext'
+
 export function Selected() {
+  const { coffees, cart } = useContext(OrderContext)
+
   return (
     <SelectedContainer>
       <h3>Cafés selecionados</h3>
       <SelectedContainerMain>
-        <CoffeeCardSelected />
-        <hr />
-        <CoffeeCardSelected />
-        <hr />
+        {cart.map((item) => {
+          const coffee = coffees.find((coffee) => coffee.id === item.id)
+
+          return (
+            <div key={item.id}>
+              <CoffeeCardSelected
+                id={item.id}
+                name={coffee?.name}
+                coffeeImage={coffee?.coffeeImage}
+                price={coffee?.price}
+                itemQuantity={item.quantity}
+              ></CoffeeCardSelected>
+              <hr />
+            </div>
+          )
+        })}
         <table>
           <tbody>
             <tr>
