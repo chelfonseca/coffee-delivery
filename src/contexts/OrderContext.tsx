@@ -37,6 +37,7 @@ export interface Order {
 
 export interface OrderContextType {
   coffees: Coffee[]
+  temporaryCart: Item[]
   cart: Item[]
   order?: Order
   adress?: AdressInfo
@@ -44,6 +45,7 @@ export interface OrderContextType {
   total?: number
   addNewOrder: (id: string) => void
   removeOrder: (id: string) => void
+  handleUpdateCart: () => void
 }
 
 export const OrderContext = createContext({} as OrderContextType)
@@ -54,47 +56,57 @@ interface OrderContextProviderProps {
 
 export function OrderContextProvider({ children }: OrderContextProviderProps) {
   const [cart, setCart] = useState<Item[]>([] as Item[])
+  const [temporaryCart, setTemporaryCart] = useState<Item[]>([] as Item[])
   // const [order, setOrder] = useState<Order>({} as Order)
   // const [adress, setAdress] = useState<AdressInfo>({} as AdressInfo)
   // const [payment, setPayment] = useState<string>('')
   // const [total, setTotal] = useState<number>(0)
 
   function addNewOrder(idProduct: string) {
-    const item = cart.find((item) => item.id === idProduct)
+    const item = temporaryCart.find((item) => item.id === idProduct)
 
     if (!item) {
       const itemUpdated = {
         id: idProduct,
         quantity: 1,
       }
-      setCart((items) => [...items, itemUpdated])
+      setTemporaryCart((items) => [...items, itemUpdated])
     } else {
       const itemUpdated = {
         id: idProduct,
         quantity: item.quantity + 1,
       }
-      const itemsWithoutItem = cart.filter((item) => item.id !== idProduct)
-      setCart((items) => [...itemsWithoutItem, itemUpdated])
+      const itemsWithoutItem = temporaryCart.filter(
+        (item) => item.id !== idProduct,
+      )
+      setTemporaryCart((items) => [...itemsWithoutItem, itemUpdated])
     }
   }
 
   function removeOrder(idProduct: string) {
-    const item = cart.find((item) => item.id === idProduct)
+    const item = temporaryCart.find((item) => item.id === idProduct)
 
     if (item && item.quantity >= 1) {
       const itemUpdated = {
         id: idProduct,
         quantity: item.quantity - 1,
       }
-      const itemsWithoutItem = cart.filter((item) => item.id !== idProduct)
-      setCart((items) => [...itemsWithoutItem, itemUpdated])
+      const itemsWithoutItem = temporaryCart.filter(
+        (item) => item.id !== idProduct,
+      )
+      setTemporaryCart((items) => [...itemsWithoutItem, itemUpdated])
     }
+  }
+
+  function handleUpdateCart() {
+    setCart(temporaryCart)
   }
 
   return (
     <OrderContext.Provider
       value={{
         coffees,
+        temporaryCart,
         cart,
         // order,
         // adress,
@@ -102,6 +114,7 @@ export function OrderContextProvider({ children }: OrderContextProviderProps) {
         // total,
         addNewOrder,
         removeOrder,
+        handleUpdateCart,
       }}
     >
       {children}

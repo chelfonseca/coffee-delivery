@@ -10,14 +10,6 @@ interface CounterProps {
 
 export function Counter({ id, itemQuantity }: CounterProps) {
   const { addNewOrder, removeOrder } = useContext(OrderContext)
-  // const [item, setItem] = useState<Item>()
-
-  // useEffect(() => {
-  //   const itemCopy = cart.find((item) => item.id === id)
-  //   if (itemCopy) {
-  //     setItem(itemCopy)
-  //   }
-  // }, [cart, id])
 
   return (
     <CounterContainer>
