@@ -15,28 +15,36 @@ import { OrderContext } from '../../../../../../contexts/OrderContext'
 
 interface CoffeeCardSelectedProps {
   id: string
-  name?: string
-  coffeeImage?: string
-  price?: number
-  itemQuantity: number
+  // name?: string
+  // coffeeImage?: string
+  // price?: number
+  // itemQuantity: number
 }
 
 export function CoffeeCardSelected({
   id,
-  name,
-  coffeeImage,
-  price,
-  itemQuantity,
-}: CoffeeCardSelectedProps) {
-  const { removeAllOrder } = useContext(OrderContext)
+}: // name,
+// coffeeImage,
+// price,
+// itemQuantity,
+CoffeeCardSelectedProps) {
+  const { coffees, cart, removeAllOrder } = useContext(OrderContext)
+
+  const item = cart.find((item) => item.id === id)
+  const coffee = coffees.find((coffee) => coffee.id === id)
+
   return (
     <CoffeeCardSelectedContainer>
       <InfoContainer>
-        <img src={coffeeImage} alt="" />
+        <img src={coffee?.coffeeImage} alt="" />
         <Details>
-          <p>{name}</p>
+          <p>{coffee?.name}</p>
           <Actions>
-            <Counter id={id} itemQuantity={itemQuantity} upDateCart />
+            <Counter
+              id={id}
+              itemQuantity={item ? item.quantity : 0}
+              upDateCart
+            />
             <Remove onClick={() => removeAllOrder(id)}>
               <Trash size={20} />
               <p>Remover</p>
@@ -44,7 +52,7 @@ export function CoffeeCardSelected({
           </Actions>
         </Details>
       </InfoContainer>
-      <span>R$ {price?.toFixed(2)}</span>
+      <span>R$ {coffee?.price.toFixed(2)}</span>
     </CoffeeCardSelectedContainer>
   )
 }

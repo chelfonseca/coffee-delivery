@@ -8,15 +8,16 @@ import { OrderContext } from '../../../../../../../../contexts/OrderContext'
 interface BuyProps {
   id: string
   itemQuantity: number
+  price: number
 }
 
-export function Buy({ id, itemQuantity }: BuyProps) {
+export function Buy({ id, itemQuantity, price }: BuyProps) {
   const { handleUpdateCart } = useContext(OrderContext)
 
   return (
     <BuyContainer>
       <p>R$</p>
-      <span>9,90</span>
+      <span>{price.toFixed(2)}</span>
       <Counter id={id} itemQuantity={itemQuantity} />
       <button onClick={() => handleUpdateCart()}>
         <ShoppingCart size={22} weight="fill" />

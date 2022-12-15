@@ -83,7 +83,7 @@ export function CoffeeList() {
           return (
             isAble && (
               <CoffeeCard
-                key={coffee.id}
+                key={coffee.description}
                 id={coffee.id}
                 name={coffee.name}
                 coffeeImage={coffee.coffeeImage}

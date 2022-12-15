@@ -30,7 +30,7 @@ export function CoffeeCard({
       </Tags>
       <h3>{name}</h3>
       <Description>{description}</Description>
-      <Buy id={id} itemQuantity={itemQuantity} />
+      <Buy id={id} itemQuantity={itemQuantity} price={price} />
     </CoffeeCardContainer>
   )
 }

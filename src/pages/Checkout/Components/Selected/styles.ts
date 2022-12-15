@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 export const SelectedContainer = styled.div`
   width: 28rem;
-  height: 32rem;
+  height: auto;
   font-size: 1.32rem;
 
   h3 {
