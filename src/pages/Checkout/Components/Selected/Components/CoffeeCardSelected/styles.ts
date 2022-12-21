@@ -37,11 +37,11 @@ export const Details = styled.div`
   flex-direction: column;
   gap: 0.5rem;
 `
-export const Actions = styled.div`
-  width: 10.7rem;
-  height: 2rem;
-  display: flex;
-`
+// export const Actions = styled.div`
+//   width: 10.7rem;
+//   height: 2rem;
+//   display: flex;
+// `
 export const Remove = styled.button`
   width: 5.7rem;
   height: 2rem;

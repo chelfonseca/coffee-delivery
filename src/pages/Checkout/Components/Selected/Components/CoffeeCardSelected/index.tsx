@@ -1,14 +1,5 @@
-import {
-  Actions,
-  CoffeeCardSelectedContainer,
-  Details,
-  InfoContainer,
-  Remove,
-} from './styles'
-
-import { Trash } from 'phosphor-react'
-
-import { Counter } from '../../../../../../components/Counter'
+import { CoffeeCardSelectedContainer, Details, InfoContainer } from './styles'
+import { Action } from '../../../../../../components/Action'
 
 import { useContext } from 'react'
 import { OrderContext } from '../../../../../../contexts/OrderContext'
@@ -28,9 +19,8 @@ export function CoffeeCardSelected({
 // price,
 // itemQuantity,
 CoffeeCardSelectedProps) {
-  const { coffees, cart, removeAllOrder } = useContext(OrderContext)
+  const { coffees } = useContext(OrderContext)
 
-  const item = cart.find((item) => item.id === id)
   const coffee = coffees.find((coffee) => coffee.id === id)
 
   return (
@@ -39,20 +29,10 @@ CoffeeCardSelectedProps) {
         <img src={coffee?.coffeeImage} alt="" />
         <Details>
           <p>{coffee?.name}</p>
-          <Actions>
-            <Counter
-              id={id}
-              itemQuantity={item ? item.quantity : 0}
-              upDateCart
-            />
-            <Remove onClick={() => removeAllOrder(id)}>
-              <Trash size={20} />
-              <p>Remover</p>
-            </Remove>
-          </Actions>
+          <Action id={id} actionType={'remove'} />
         </Details>
       </InfoContainer>
-      <span>R$ {coffee?.price.toFixed(2)}</span>
+      <span>R$ {coffee ? coffee.price.toFixed(2) : 0}</span>
     </CoffeeCardSelectedContainer>
   )
 }

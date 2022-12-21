@@ -8,7 +8,6 @@ interface CoffeeCardProps {
   description: string
   tags: string[]
   price: number
-  itemQuantity: number
 }
 
 export function CoffeeCard({
@@ -18,7 +17,6 @@ export function CoffeeCard({
   name,
   price,
   tags,
-  itemQuantity,
 }: CoffeeCardProps) {
   return (
     <CoffeeCardContainer>
@@ -30,7 +28,7 @@ export function CoffeeCard({
       </Tags>
       <h3>{name}</h3>
       <Description>{description}</Description>
-      <Buy id={id} itemQuantity={itemQuantity} price={price} />
+      <Buy id={id} price={price} />
     </CoffeeCardContainer>
   )
 }

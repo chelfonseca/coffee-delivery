@@ -20,7 +20,7 @@ const coffeesTypes = [
 
 export function CoffeeList() {
   const [coffeeFilter, setCoffeeFilter] = useState<string[]>(coffeesTypes)
-  const { coffees, temporaryCart } = useContext(OrderContext)
+  const { coffees } = useContext(OrderContext)
   const [activedButton, setActivedButton] = useState<string>('')
 
   function toggleCoffeType(coffeeType: string) {
@@ -77,20 +77,17 @@ export function CoffeeList() {
           const hasTypes = coffee.tags.filter((tag) =>
             coffeeFilter.includes(tag),
           )
-          const item = temporaryCart.find((item) => item.id === coffee.id)
-          const itemQuantity = item ? item.quantity : 0
           const isAble = hasTypes.length !== 0
           return (
             isAble && (
               <CoffeeCard
-                key={coffee.description}
+                key={coffee.id}
                 id={coffee.id}
                 name={coffee.name}
                 coffeeImage={coffee.coffeeImage}
                 description={coffee.description}
                 tags={coffee.tags}
                 price={coffee.price}
-                itemQuantity={itemQuantity}
               />
             )
           )

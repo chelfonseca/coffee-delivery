@@ -9,7 +9,7 @@ import { useContext } from 'react'
 import { OrderContext } from '../../../../contexts/OrderContext'
 
 export function Selected() {
-  const { cart, deliveryFee, totalOrder } = useContext(OrderContext)
+  const { cart } = useContext(OrderContext)
 
   return (
     <SelectedContainer>
@@ -49,17 +49,17 @@ export function Selected() {
           <tbody>
             <tr>
               <td>Total de itens</td>
-              <td>R$ {totalOrder.toFixed(2)}</td>
+              {/* <td>R$ {totalOrder.toFixed(2)}</td> */}
             </tr>
             <tr>
               <td>Entrega</td>
-              <td>R$ {deliveryFee.toFixed(2)}</td>
+              {/* <td>R$ {deliveryFee.toFixed(2)}</td> */}
             </tr>
           </tbody>
           <tfoot>
             <tr>
               <th>Total</th>
-              <th>R$ {(totalOrder + deliveryFee).toFixed(2)}</th>
+              {/* <th>R$ {(totalOrder + deliveryFee).toFixed(2)}</th> */}
             </tr>
           </tfoot>
         </table>
