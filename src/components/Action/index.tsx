@@ -32,11 +32,23 @@ export function Action({ id, actionType }: CounterProps) {
   return (
     <ActionContainer>
       <Counter>
-        <div onClick={() => handleSetQuantity('sub')}>
+        <div
+          onClick={() =>
+            actionType === 'buy'
+              ? handleSetQuantity('sub')
+              : addToCart(id, item ? item.quantity - 1 : 0)
+          }
+        >
           <Minus size={13} />
         </div>
         <p>{actionType === 'buy' ? quantity : item?.quantity}</p>
-        <div onClick={() => handleSetQuantity('add')}>
+        <div
+          onClick={() =>
+            actionType === 'buy'
+              ? handleSetQuantity('add')
+              : addToCart(id, item ? item.quantity + 1 : 0)
+          }
+        >
           <Plus size={13} />
         </div>
       </Counter>
