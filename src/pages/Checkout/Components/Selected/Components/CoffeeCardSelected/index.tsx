@@ -6,19 +6,9 @@ import { OrderContext } from '../../../../../../contexts/OrderContext'
 
 interface CoffeeCardSelectedProps {
   id: string
-  // name?: string
-  // coffeeImage?: string
-  // price?: number
-  // itemQuantity: number
 }
 
-export function CoffeeCardSelected({
-  id,
-}: // name,
-// coffeeImage,
-// price,
-// itemQuantity,
-CoffeeCardSelectedProps) {
+export function CoffeeCardSelected({ id }: CoffeeCardSelectedProps) {
   const { coffees } = useContext(OrderContext)
 
   const coffee = coffees.find((coffee) => coffee.id === id)

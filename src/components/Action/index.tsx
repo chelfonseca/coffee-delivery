@@ -10,7 +10,7 @@ interface CounterProps {
 }
 
 export function Action({ id, actionType }: CounterProps) {
-  const { cart, addToCart, removeFromCart } = useContext(OrderContext)
+  const { cart, updateCart, removeFromCart } = useContext(OrderContext)
   const [quantity, setQuantity] = useState(0)
   const item = cart.find((item) => item.id === id)
 
@@ -36,7 +36,7 @@ export function Action({ id, actionType }: CounterProps) {
           onClick={() =>
             actionType === 'buy'
               ? handleSetQuantity('sub')
-              : addToCart(id, item ? item.quantity - 1 : 0)
+              : updateCart(id, item ? item.quantity - 1 : 0)
           }
         >
           <Minus size={13} />
@@ -46,14 +46,14 @@ export function Action({ id, actionType }: CounterProps) {
           onClick={() =>
             actionType === 'buy'
               ? handleSetQuantity('add')
-              : addToCart(id, item ? item.quantity + 1 : 0)
+              : updateCart(id, item ? item.quantity + 1 : 0)
           }
         >
           <Plus size={13} />
         </div>
       </Counter>
       {actionType === 'buy' && (
-        <Add onClick={() => addToCart(id, quantity)}>
+        <Add onClick={() => updateCart(id, quantity)}>
           <ShoppingCart size={22} weight="fill" />
         </Add>
       )}
