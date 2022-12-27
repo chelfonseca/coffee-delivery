@@ -17,11 +17,11 @@ export function Action({ id, actionType }: CounterProps) {
   function handleSetQuantity(type: string) {
     switch (type) {
       case 'add':
-        setQuantity((quantity) => quantity + 1)
+        setQuantity((quantity) => (quantity >= 0 ? quantity + 1 : 0))
         break
 
       case 'sub':
-        setQuantity((quantity) => quantity - 1)
+        setQuantity((quantity) => (quantity >= 1 ? quantity - 1 : 0))
         break
 
       default:

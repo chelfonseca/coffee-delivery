@@ -59,11 +59,12 @@ export function OrderContextProvider({ children }: OrderContextProviderProps) {
   // const [deliveryFee, setDeliveryFee] = useState<number>(3.5)
 
   function updateCart(idProduct: string, quantity: number) {
+    const itemQuantity = () => (quantity >= 0 ? quantity : 0)
     const items = cart.map((item) => {
       if (item.id === idProduct) {
         return {
           ...item,
-          quantity,
+          quantity: itemQuantity(),
         }
       } else {
         return {
@@ -78,7 +79,7 @@ export function OrderContextProvider({ children }: OrderContextProviderProps) {
     } else {
       const itemCoffee = coffees.find((coffee) => coffee.id === idProduct)
       if (itemCoffee) {
-        const newItem: Item = { ...itemCoffee, quantity }
+        const newItem: Item = { ...itemCoffee, quantity: itemQuantity() }
         setCart(() => [...items, newItem])
       }
     }

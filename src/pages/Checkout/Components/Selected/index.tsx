@@ -5,15 +5,14 @@ import {
   SelectedContainerMain,
 } from './styles'
 
-import { useContext, useEffect } from 'react'
+import { useContext } from 'react'
 import { OrderContext } from '../../../../contexts/OrderContext'
 
 export function Selected() {
   const { cart } = useContext(OrderContext)
-  console.log('renderixou')
 
   const totalOrder = cart.reduce(
-    (acc, item) => acc + (item ? item.price : 0),
+    (acc, item) => acc + (item ? item.price * item.quantity : 0),
     0,
   )
 
