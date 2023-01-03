@@ -17,6 +17,7 @@ export function Selected() {
   )
 
   const deliveryFee = 3.5
+  const { handleSubmit } = newAdressForm
 
   return (
     <SelectedContainer>
@@ -48,7 +49,7 @@ export function Selected() {
             </tr>
           </tfoot>
         </table>
-        <PurchaseButton type="submit" form="adressForm">
+        <PurchaseButton type="submit" form="adressForm" onClick={handleSubmit}>
           Confirmar Pedido
         </PurchaseButton>
       </SelectedContainerMain>
