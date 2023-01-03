@@ -17,28 +17,6 @@ export function Selected() {
   )
 
   const deliveryFee = 3.5
-  // useEffect(() => {
-  //   if (cartAllInfo) {
-  //     const total = cartAllInfo.reduce(
-  //       (acc, item) => acc + (item ? item.price : 0),
-  //       0,
-  //     )
-  //   }
-  //   setTotalOrder((state) => state + 1)
-  // }, [cartAllInfo])
-
-  // useEffect(() => {
-  //   const cartAllInfo = cart.map((item) =>
-  //     coffees.find((coffee) => coffee.id === item.id),
-  //   )
-  //   if (cartAllInfo) {
-  //     const total = cartAllInfo.reduce(
-  //       (acc, item) => acc + (item ? item.price : 0),
-  //       0,
-  //     )
-  //   }
-  //   setTotalOrder(total)
-  // }, [cart, coffees])
 
   return (
     <SelectedContainer>
@@ -70,7 +48,9 @@ export function Selected() {
             </tr>
           </tfoot>
         </table>
-        <PurchaseButton>Confirmar Pedido</PurchaseButton>
+        <PurchaseButton type="submit" form="adressForm">
+          Confirmar Pedido
+        </PurchaseButton>
       </SelectedContainerMain>
     </SelectedContainer>
   )

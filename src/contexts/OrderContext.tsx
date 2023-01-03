@@ -1,4 +1,5 @@
 import { createContext, ReactNode, useState } from 'react'
+import { NewAdreesFormData } from '../pages/Checkout/Components/Order/Components/FormAdress'
 
 import { coffees } from '../products/products'
 
@@ -20,7 +21,8 @@ export interface AdressInfo {
   number: string
   complement?: string
   neighborhood: string
-  stateCode: string
+  city: string
+  state: string
 }
 export interface Order {
   id: string
@@ -39,6 +41,7 @@ export interface OrderContextType {
   total?: number
   updateCart: (idProduct: string, quantity: number) => void
   removeFromCart: (id: string) => void
+  createNewAdress: (data: NewAdreesFormData) => void
   // totalOrder: number
   // deliveryFee: number
 }
@@ -53,7 +56,7 @@ export function OrderContextProvider({ children }: OrderContextProviderProps) {
   const [cart, setCart] = useState<Item[]>([] as Item[])
   // const [temporaryCart, setTemporaryCart] = useState<Item[]>([] as Item[])
   // const [order, setOrder] = useState<Order>({} as Order)
-  // const [adress, setAdress] = useState<AdressInfo>({} as AdressInfo)
+  const [adress, setAdress] = useState<AdressInfo>({} as AdressInfo)
   // const [payment, setPayment] = useState<string>('')
   // const [totalOrder, setTotal] = useState<number>(0)
   // const [deliveryFee, setDeliveryFee] = useState<number>(3.5)
@@ -90,19 +93,9 @@ export function OrderContextProvider({ children }: OrderContextProviderProps) {
     setCart(() => [...itemsUpdated])
   }
 
-  // useEffect(() => {
-  //   setDeliveryFee(3.5)
-  //   const cartAllInfo = cart.map((item) =>
-  //     coffees.find((coffee) => coffee.id === item.id),
-  //   )
-  //   if (cartAllInfo) {
-  //     const totalOrder = cartAllInfo.reduce(
-  //       (acc, item) => acc + (item ? item.price : 0),
-  //       0,
-  //     )
-  //     setTotal(totalOrder)
-  //   }
-  // }, [cart, setCart])
+  function createNewAdress(data: NewAdreesFormData) {
+    setAdress(data)
+  }
 
   return (
     <OrderContext.Provider
@@ -111,6 +104,8 @@ export function OrderContextProvider({ children }: OrderContextProviderProps) {
         cart,
         updateCart,
         removeFromCart,
+        createNewAdress,
+        adress,
 
         // order,
         // adress,

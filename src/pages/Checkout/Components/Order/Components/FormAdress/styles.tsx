@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const FormAdressContainer = styled.form`
+export const FormAdressContainer = styled.div`
   display: grid;
   grid-template-columns: 12.5rem 17.25rem 3.75rem;
   grid-template-rows: 2.625rem 2.625rem 2.625rem 2.625rem;
