@@ -15,7 +15,8 @@ import * as zod from 'zod'
 import { zodResolver } from '@hookform/resolvers/zod'
 
 const newAdressFormValidationSchema = zod.object({
-  postCode: zod.string().regex(/^d{5}[-]?d{3}$/, 'Inform PostCode'),
+  // postCode: zod.string().regex(/^d{5}[-]?d{3}$/, 'Inform PostCode'),
+  postCode: zod.string().min(1, 'Inform PostCode'),
   street: zod.string().min(1, 'Inform the street'),
   number: zod.string().min(1, 'Inform the street number '),
   complement: zod.string(),
@@ -31,18 +32,19 @@ export function FormAdress() {
 
   const newAdressForm = useForm<NewAdressFormData>({
     resolver: zodResolver(newAdressFormValidationSchema),
-    defaultValues: {
-      postCode: '00000-000',
-      street: ' Avenida Brasil ',
-      number: '500',
-      complement: '8',
-      neighborhood: 'Barra',
-      city: 'SP ',
-      state: 'SP',
-    },
+    // defaultValues: {
+    //   postCode: '00000-000',
+    //   street: ' Avenida Brasil ',
+    //   number: '500',
+    //   complement: '8',
+    //   neighborhood: 'Barra',
+    //   city: 'São Paulo ',
+    //   state: 'SP',
+    // },
   })
 
   const { handleSubmit, reset, register } = newAdressForm
+
   function handleCreateNewAdress(data: NewAdressFormData) {
     console.log(data)
     createNewAdress(data)
@@ -61,7 +63,7 @@ export function FormAdress() {
         {...register('postCode')}
       />
       <InputStreet placeholder="Rua" id="street" {...register('street')} />
-      <InputNumber placeholder="Número" id="street" {...register('street')} />
+      <InputNumber placeholder="Número" id="number" {...register('number')} />
       <InputComplement
         placeholder="Complemento"
         id="complement"
