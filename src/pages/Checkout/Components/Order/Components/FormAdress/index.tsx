@@ -10,6 +10,7 @@ import {
   InputState,
   InputStreet,
 } from './styles'
+import { useFormContext } from 'react-hook-form'
 // import { FormProvider, useForm } from 'react-hook-form'
 // import * as zod from 'zod'
 // import { zodResolver } from '@hookform/resolvers/zod'
@@ -48,6 +49,7 @@ export function FormAdress() {
   //   createNewAdress(data)
   //   reset()
   // }
+  const { register } = useFormContext()
 
   return (
     <FormAdressContainer
@@ -55,14 +57,26 @@ export function FormAdress() {
     // id="adressForm"
     >
       {/* <FormProvider {...newAdressForm}> */}
-      <InputPostCode placeholder="00000-000" />
-      <InputStreet placeholder="Rua" />
-      <InputNumber placeholder="Número" />
-      <InputComplement placeholder="Complemento" />
+      <InputPostCode
+        placeholder="00000-000"
+        id="postCode"
+        {...register('postCode')}
+      />
+      <InputStreet placeholder="Rua" id="street" {...register('street')} />
+      <InputNumber placeholder="Número" id="number" {...register('number')} />
+      <InputComplement
+        placeholder="Complemento"
+        id="complement"
+        {...register('complement')}
+      />
       <span>Opcional</span>
-      <InputNeighborhood placeholder="Bairro" />
-      <InputCity placeholder="Cidade" />
-      <InputState placeholder="UF" />
+      <InputNeighborhood
+        placeholder="Bairro"
+        id="neighborhood"
+        {...register('neighborhood')}
+      />
+      <InputCity placeholder="Cidade" id="city" {...register('city')} />
+      <InputState placeholder="UF" id="state" {...register('state')} />
       {/* </FormProvider> */}
       {/* <button type="submit">Teste</button> */}
     </FormAdressContainer>
