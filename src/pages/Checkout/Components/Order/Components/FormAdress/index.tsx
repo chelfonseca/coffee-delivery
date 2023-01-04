@@ -10,9 +10,9 @@ import {
   InputState,
   InputStreet,
 } from './styles'
-// import { FormProvider, useForm } from 'react-hook-form'
-// import * as zod from 'zod'
-// import { zodResolver } from '@hookform/resolvers/zod'
+import { useForm } from 'react-hook-form'
+import * as zod from 'zod'
+import { zodResolver } from '@hookform/resolvers/zod'
 
 const newAdressFormValidationSchema = zod.object({
   // postCode: zod.string().regex(/^d{5}[-]?d{3}$/, 'Inform PostCode'),
@@ -44,13 +44,11 @@ export function FormAdress() {
   })
 
   const { handleSubmit, reset, register } = newAdressForm
-
-  // const { handleSubmit, reset } = newAdressForm
-  // function handleCreateNewAdress(data: NewAdreesFormData) {
-  //   console.log(data)
-  //   createNewAdress(data)
-  //   reset()
-  // }
+  function handleCreateNewAdress(data: NewAdressFormData) {
+    console.log(data)
+    createNewAdress(data)
+    reset()
+  }
 
   return (
     <FormAdressContainer
@@ -61,23 +59,41 @@ export function FormAdress() {
       <InputPostCode
         placeholder="00000-000"
         id="postCode"
+        required
         {...register('postCode')}
       />
-      <InputStreet placeholder="Rua" id="street" {...register('street')} />
-      <InputNumber placeholder="Número" id="number" {...register('number')} />
+      <InputStreet
+        placeholder="Rua"
+        id="street"
+        required
+        {...register('street')}
+      />
+      <InputNumber
+        placeholder="Número"
+        id="number"
+        required
+        {...register('number')}
+      />
       <InputComplement
         placeholder="Complemento"
         id="complement"
+        required
         {...register('complement')}
       />
       <span>Opcional</span>
       <InputNeighborhood
         placeholder="Bairro"
         id="neighborhood"
+        required
         {...register('neighborhood')}
       />
-      <InputCity placeholder="Cidade" id="city" {...register('city')} />
-      <InputState placeholder="UF" id="state" {...register('state')} />
+      <InputCity
+        placeholder="Cidade"
+        id="city"
+        required
+        {...register('city')}
+      />
+      <InputState placeholder="UF" id="state" required {...register('state')} />
       {/* </FormProvider> */}
     </FormAdressContainer>
   )

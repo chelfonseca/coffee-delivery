@@ -68,4 +68,7 @@ export const PurchaseButton = styled.button`
   :hover {
     background-color: ${(props) => props.theme['yellow-dark']};
   }
+  :disabled {
+    background-color: ${(props) => props.theme['base-subtitle']};
+  }
 `

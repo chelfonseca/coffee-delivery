@@ -1,5 +1,5 @@
 import { createContext, ReactNode, useState } from 'react'
-import { NewAdreesFormData } from '../pages/Checkout/Components/Order/Components/FormAdress'
+import { NewAdressFormData } from '../pages/Checkout/Components/Order/Components/FormAdress'
 
 import { coffees } from '../products/products'
 
@@ -41,7 +41,8 @@ export interface OrderContextType {
   total?: number
   updateCart: (idProduct: string, quantity: number) => void
   removeFromCart: (id: string) => void
-  createNewAdress: (data: NewAdreesFormData) => void
+  createNewAdress: (data: NewAdressFormData) => void
+  handlePayment: (type: string) => void
   // totalOrder: number
   // deliveryFee: number
 }
@@ -57,7 +58,7 @@ export function OrderContextProvider({ children }: OrderContextProviderProps) {
   // const [temporaryCart, setTemporaryCart] = useState<Item[]>([] as Item[])
   // const [order, setOrder] = useState<Order>({} as Order)
   const [adress, setAdress] = useState<AdressInfo>({} as AdressInfo)
-  // const [payment, setPayment] = useState<string>('')
+  const [payment, setPayment] = useState<string>('credit card')
   // const [totalOrder, setTotal] = useState<number>(0)
   // const [deliveryFee, setDeliveryFee] = useState<number>(3.5)
 
@@ -93,8 +94,12 @@ export function OrderContextProvider({ children }: OrderContextProviderProps) {
     setCart(() => [...itemsUpdated])
   }
 
-  function createNewAdress(data: NewAdreesFormData) {
+  function createNewAdress(data: NewAdressFormData) {
     setAdress(data)
+  }
+
+  function handlePayment(type: string) {
+    setPayment(type)
   }
 
   return (
@@ -105,6 +110,7 @@ export function OrderContextProvider({ children }: OrderContextProviderProps) {
         updateCart,
         removeFromCart,
         createNewAdress,
+        handlePayment,
         adress,
 
         // order,
