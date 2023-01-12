@@ -1,6 +1,11 @@
 import styled from 'styled-components'
 
-export const FormAdressContainer = styled.form`
+export const FormContainer = styled.form`
+  display: flex;
+  flex-direction: column;
+  background-color: ${(props) => props.theme.background};
+`
+export const FormAdressContainer = styled.div`
   display: grid;
   grid-template-columns: 12.5rem 17.25rem 3.75rem;
   grid-template-rows: 2.625rem 2.625rem 2.625rem 2.625rem;
@@ -11,6 +16,9 @@ export const FormAdressContainer = styled.form`
     'inputNeighborhood inputCity inputState';
   grid-gap: 1rem;
   justify-content: center;
+  background-color: ${(props) => props.theme['base-card']};
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
 
   span {
     position: relative;
@@ -20,6 +28,7 @@ export const FormAdressContainer = styled.form`
     font-style: italic;
   }
 `
+
 const Input = styled.input`
   background-color: ${(props) => props.theme['base-input']};
   padding-left: 0.5rem;

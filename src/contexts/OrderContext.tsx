@@ -23,6 +23,7 @@ export interface AdressInfo {
   neighborhood: string
   city: string
   state: string
+  payment: string
 }
 export interface Order {
   id: string
@@ -37,12 +38,12 @@ export interface OrderContextType {
   cart: Item[]
   order?: Order
   adress?: AdressInfo
-  payment?: string
+  // payment?: string
   total?: number
   updateCart: (idProduct: string, quantity: number) => void
   removeFromCart: (id: string) => void
   createNewAdress: (data: NewAdressFormData) => void
-  handlePayment: (type: string) => void
+  // handlePayment: (type: string) => void
   // totalOrder: number
   // deliveryFee: number
 }
@@ -58,7 +59,7 @@ export function OrderContextProvider({ children }: OrderContextProviderProps) {
   // const [temporaryCart, setTemporaryCart] = useState<Item[]>([] as Item[])
   // const [order, setOrder] = useState<Order>({} as Order)
   const [adress, setAdress] = useState<AdressInfo>({} as AdressInfo)
-  const [payment, setPayment] = useState<string>('credit card')
+  // const [payment, setPayment] = useState<string>('credit card')
   // const [totalOrder, setTotal] = useState<number>(0)
   // const [deliveryFee, setDeliveryFee] = useState<number>(3.5)
 
@@ -98,9 +99,9 @@ export function OrderContextProvider({ children }: OrderContextProviderProps) {
     setAdress(data)
   }
 
-  function handlePayment(type: string) {
-    setPayment(type)
-  }
+  // function handlePayment(type: string) {
+  //   setPayment(type)
+  // }
 
   return (
     <OrderContext.Provider
@@ -110,7 +111,7 @@ export function OrderContextProvider({ children }: OrderContextProviderProps) {
         updateCart,
         removeFromCart,
         createNewAdress,
-        handlePayment,
+        // handlePayment,
         adress,
 
         // order,

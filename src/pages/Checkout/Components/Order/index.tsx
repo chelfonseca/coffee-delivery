@@ -1,7 +1,6 @@
 import { OrderContainer, OrderContainerMain, BasicHeader } from './styles'
 import { MapPinLine } from 'phosphor-react'
 import { FormAdress } from './Components/FormAdress'
-import { Payment } from './Components/Payment'
 
 export function Order() {
   return (
@@ -18,7 +17,6 @@ export function Order() {
         </BasicHeader>
         <FormAdress />
       </OrderContainerMain>
-      <Payment />
     </OrderContainer>
   )
 }

@@ -1,15 +1,28 @@
 import { BasicHeader } from '../../styles'
-import { PaymentButtonsContainer, PaymentContainer } from './styles'
+import {
+  PaymentButton,
+  PaymentButtonsContainer,
+  PaymentContainer,
+} from './styles'
 
-import { CurrencyDollar, CreditCard, Bank, Money } from 'phosphor-react'
+import {
+  CurrencyDollar,
+  // ,
+  CreditCard,
+  Bank,
+  Money,
+} from 'phosphor-react'
+import { useFormContext } from 'react-hook-form'
 
-import { useContext } from 'react'
-import { OrderContext } from '../../../../../../contexts/OrderContext'
+import { useState } from 'react'
+
 export function Payment() {
-  const { handlePayment } = useContext(OrderContext)
+  const { register } = useFormContext()
 
-  function handlePaymentType(type: string) {
-    handlePayment(type)
+  const [buttonChecked, setButtonChecked] = useState('credit card')
+
+  function handleChange(payment: string) {
+    setButtonChecked(payment)
   }
   return (
     <PaymentContainer>
@@ -21,18 +34,49 @@ export function Payment() {
         </div>
       </BasicHeader>
       <PaymentButtonsContainer>
-        <button onClick={() => handlePaymentType('credit card')}>
+        <PaymentButton
+          htmlFor="credit card"
+          checked={buttonChecked === 'credit card'}
+        >
           <CreditCard size={22} />
           <p>Cartão de crédito</p>
-        </button>
-        <button onClick={() => handlePaymentType('debit card')}>
+          <input
+            type="radio"
+            id="credit card"
+            value="credit card"
+            {...register('payment')}
+            name="payment"
+            onChange={() => handleChange('credit card')}
+          />
+        </PaymentButton>
+
+        <PaymentButton
+          htmlFor="debit card"
+          checked={buttonChecked === 'debit card'}
+        >
           <Bank size={22} />
           <p>Cartão de débito</p>
-        </button>
-        <button onClick={() => handlePaymentType('money')}>
+          <input
+            type="radio"
+            id="debit card"
+            value="debit card"
+            {...register('payment')}
+            onChange={() => handleChange('debit card')}
+            name="payment"
+          />
+        </PaymentButton>
+        <PaymentButton htmlFor="money" checked={buttonChecked === 'money'}>
           <Money size={22} />
           <p>Dinheiro</p>
-        </button>
+          <input
+            type="radio"
+            id="money"
+            value="money"
+            {...register('payment')}
+            onChange={() => handleChange('money')}
+            name="payment"
+          />
+        </PaymentButton>
       </PaymentButtonsContainer>
     </PaymentContainer>
   )
