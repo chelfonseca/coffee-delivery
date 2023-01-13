@@ -21,7 +21,7 @@ import { Payment } from '../Payment'
 
 const newAdressFormValidationSchema = zod.object({
   // postCode: zod.string().regex(/^d{5}[-]?d{3}$/, 'Inform PostCode'),
-  postCode: zod.string().min(1, 'Inform PostCode'),
+  postCode: zod.string().min(1, { message: 'Inform PostCode' }),
   street: zod.string().min(1, 'Inform the street'),
   number: zod.string().min(1, 'Inform the street number '),
   complement: zod.string(),
@@ -46,6 +46,7 @@ export function FormAdress() {
     //   neighborhood: 'Barra',
     //   city: 'São Paulo ',
     //   state: 'SP',
+    //   payment: 'credit card',
     // },
   })
 

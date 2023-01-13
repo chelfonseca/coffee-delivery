@@ -4,24 +4,19 @@ import {
   SelectedContainer,
   SelectedContainerMain,
 } from './styles'
-// import { useNavigate } from 'react-router-dom'
+
 import { useContext } from 'react'
 import { OrderContext } from '../../../../contexts/OrderContext'
 
 export function Selected() {
   const { cart } = useContext(OrderContext)
-  // const navigate = useNavigate()
 
   const totalOrder = cart.reduce(
     (acc, item) => acc + (item ? item.price * item.quantity : 0),
     0,
   )
 
-  // useEffect(() => navigate('/success'), [adress, payment])
-
   const deliveryFee = 3.5
-
-  // const isAbleTofinish = adress !== undefined && payment !== undefined
 
   return (
     <SelectedContainer>

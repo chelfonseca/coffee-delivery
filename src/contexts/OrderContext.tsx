@@ -1,5 +1,6 @@
-import { createContext, ReactNode, useState } from 'react'
+import { createContext, ReactNode, useEffect, useState } from 'react'
 import { NewAdressFormData } from '../pages/Checkout/Components/Order/Components/FormAdress'
+import { useNavigate } from 'react-router-dom'
 
 import { coffees } from '../products/products'
 
@@ -62,6 +63,7 @@ export function OrderContextProvider({ children }: OrderContextProviderProps) {
   // const [payment, setPayment] = useState<string>('credit card')
   // const [totalOrder, setTotal] = useState<number>(0)
   // const [deliveryFee, setDeliveryFee] = useState<number>(3.5)
+  const [load, setLoad] = useState(false)
 
   function updateCart(idProduct: string, quantity: number) {
     const itemQuantity = () => (quantity >= 0 ? quantity : 0)
@@ -97,11 +99,20 @@ export function OrderContextProvider({ children }: OrderContextProviderProps) {
 
   function createNewAdress(data: NewAdressFormData) {
     setAdress(data)
+    setLoad(true)
   }
+  const navigate = useNavigate()
+  useEffect(() => {
+    if (load) {
+      navigate('/success')
+    }
+  }, [load, navigate])
 
   // function handlePayment(type: string) {
   //   setPayment(type)
   // }
+  // const navigate = useNavigate()
+  // useEffect(() => navigate('/success'), [adress, navigate])
 
   return (
     <OrderContext.Provider
