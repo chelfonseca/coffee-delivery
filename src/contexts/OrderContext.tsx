@@ -10,13 +10,13 @@ export interface Coffee {
   coffeeImage: string
   description: string
   tags: string[]
-  price: 9.9
+  price: number
 }
 export interface Item extends Coffee {
   quantity: number
 }
 
-export interface AdressInfo {
+export interface DeliveryInfo {
   postCode: string
   street: string
   number: string
@@ -29,7 +29,7 @@ export interface AdressInfo {
 export interface Order {
   id: string
   cart: Item[]
-  adress?: AdressInfo
+  adress?: DeliveryInfo
   payment?: string
   total?: number
 }
@@ -38,7 +38,7 @@ export interface OrderContextType {
   coffees: Coffee[]
   cart: Item[]
   order?: Order
-  adress?: AdressInfo
+  adress?: DeliveryInfo
   // payment?: string
   total?: number
   updateCart: (idProduct: string, quantity: number) => void
@@ -59,7 +59,7 @@ export function OrderContextProvider({ children }: OrderContextProviderProps) {
   const [cart, setCart] = useState<Item[]>([] as Item[])
   // const [temporaryCart, setTemporaryCart] = useState<Item[]>([] as Item[])
   // const [order, setOrder] = useState<Order>({} as Order)
-  const [adress, setAdress] = useState<AdressInfo>({} as AdressInfo)
+  const [adress, setAdress] = useState<DeliveryInfo>({} as DeliveryInfo)
   // const [payment, setPayment] = useState<string>('credit card')
   // const [totalOrder, setTotal] = useState<number>(0)
   // const [deliveryFee, setDeliveryFee] = useState<number>(3.5)
@@ -111,8 +111,6 @@ export function OrderContextProvider({ children }: OrderContextProviderProps) {
   // function handlePayment(type: string) {
   //   setPayment(type)
   // }
-  // const navigate = useNavigate()
-  // useEffect(() => navigate('/success'), [adress, navigate])
 
   return (
     <OrderContext.Provider
