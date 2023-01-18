@@ -18,7 +18,7 @@ export const SuccessHeader = styled.header`
     color: ${(props) => props.theme['base-subtitle']};
   }
 `
-export const SuccessBody = styled.body`
+export const SuccessBody = styled.div`
   width: auto;
   display: flex;
   justify-content: space-between;

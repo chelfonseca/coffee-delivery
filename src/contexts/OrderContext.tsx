@@ -9,7 +9,12 @@ import { NewAdressFormData } from '../pages/Checkout/Components/Order/Components
 import { useNavigate } from 'react-router-dom'
 
 import { coffees } from '../products/products'
-import { Coffee, DeliveryInfo, Item, Order } from '../reducers/orders/reducer'
+import {
+  Coffee,
+  DeliveryInfo,
+  Item,
+  orderReducer,
+} from '../reducers/orders/reducer'
 import {
   createNewAdressAction,
   removeFromCartAction,
@@ -71,22 +76,38 @@ interface OrderContextProviderProps {
   children: ReactNode
 }
 
+const initialState = {
+  id: ' ',
+  cart: [] as Item[],
+  adress: {} as DeliveryInfo,
+}
+const intialInit = Object.assign(
+  initialState,
+  (initialState.id = new Date().toString()),
+)
+
 export function OrderContextProvider({ children }: OrderContextProviderProps) {
   // const [cart, setCart] = useState<Item[]>([] as Item[])
   // const [adress, setAdress] = useState<DeliveryInfo>({} as DeliveryInfo)
   const [load, setLoad] = useState(false)
 
-  const [orderState, dispatch] = useReducer((state: Order, action: any) => {
-    console.log(state)
-    console.log(action)
-
-    return state
-  }, {} as Order)
+  const [orderState, dispatch] = useReducer(
+    orderReducer,
+    initialState,
+    () => intialInit,
+  )
 
   const { cart, adress } = orderState
 
   function updateCart(idProduct: string, quantity: number) {
     dispatch(updateCartAction(idProduct, quantity))
+    // dispatch({
+    //   type: 'UPDATE_CART',
+    //   payload: {
+    //     idProduct,
+    //     quantity,
+    //   },
+    // })
   }
   // function updateCart(idProduct: string, quantity: number) {
   //   const itemQuantity = () => (quantity >= 0 ? quantity : 0)
